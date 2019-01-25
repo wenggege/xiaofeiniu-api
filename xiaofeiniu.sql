@@ -5,12 +5,18 @@ DROP DATABASE IF EXISTS xiaofeiniu;
 CREATE DATABASE xiaofeiniu CHARSET=UTF8;
 #进入数据库
 USE xiaofeiniu;
-#创建数据表
+
+#创建管理员表
 CREATE TABLE xfn_admin(
-  aid INT PRIMARY KEY,
-  aname VARCHAR(32), 
+  aid INT PRIMARY KEY AUTO_INCREMENT,
+  aname VARCHAR(32) UNIQUE, 
   apwd VARCHAR(64) #加密存储
 );
+INSERT INTO xfn_admin VALUES (NULL,'admin',PASSWORD('123456'));
+INSERT INTO xfn_admin VALUES (NULL,'boss',PASSWORD('999999'));
+
+
+
 
 #项目全局设置：xfn_settings
 CREATE TABLE xfn_settings(
